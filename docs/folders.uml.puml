@@ -1,0 +1,60 @@
+@startmindmap
+* app
+** presentation
+*** screens
+*** components
+*** MainViewModel
+** domain
+*** model
+*** repository
+*** usecase
+** data
+*** local
+*** repository
+*** mapper
+** di
+** util
+@endmindmap
+
+
+src/
+ └── main/
+ ├── java/androidavatar/learning/contactsapp/
+ │   ├── presentation/        <-- UI layer (Compose, ViewModels, Navigation)
+ │   │   ├── screens/         <-- One folder per screen
+ │   │   └── components/      <-- Shared UI elements (e.g., Buttons, Modals)
+ │   ├── domain/              <-- Business logic layer
+ │   │   ├── model/           <-- Data classes used in domain (Contact, etc.)
+ │   │   ├── repository/      <-- Abstract repository interfaces
+ │   │   └── usecase/         <-- One use case per class (Single Responsibility)
+ │   ├── data/                <-- Data layer (Room, Repositories)
+ │   │   ├── local/           <-- Room database, DAO
+ │   │   ├── repository/      <-- Repository implementations
+ │   │   └── mapper/          <-- Map data <-> domain models
+ │   ├── di/                  <-- Dependency injection (Hilt modules)
+ │   └── util/                <-- Utility classes (DateUtils, constants, etc.)
+ └── res/
+ └── values/
+ └── themes.xml, strings.xml, styles.xml
+
+ The diagram tree depicts a clean architecture based folder structure which consists of:
+ 1) presentation : - It serves the purpose of UI logic (jetpack compose) and Viewmodel(s).
+                     This enables us to separate the UI logic from data logic.Each screen gets
+                     its own subfolder.
+ 2) domain : - The folder holds the business logic together. It includes
+               models :- contains core data structures (Contact,PhoneNumber)
+               usecase: single-responsibility interactors like GetAllContactUseCase,AddContactUseCase
+               repositories: abstract contract that data layer implements.
+ 3) data : - The purpose is to handle data sources (Room DB or remote APIs)
+             It includes - Local data (Room DB and DAO), Repository - Implements domain interfaces, Mapper - converts
+                           DB entities to domain models and vice-versa
+4) di : - The purpose is to use Hilt or Koin modules for dependency injection
+          Keeps all the binding definitions centralised
+5) util : - The purpose of utility functions /constants/helpers shared across the app.
+
+Benefits of This Structure
+1) Scalable - Easy to add new features/screens
+2) Testable - Each layer is decoupled and easy to unit test
+3) Maintainable - Clear separation of concerns
+4) SOLID Principles - Each class follows SRP, DIP, and Interface Segregation
+
