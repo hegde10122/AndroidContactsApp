@@ -1,0 +1,44 @@
+@startuml
+' Skin settings
+skinparam rectangle {
+    BackgroundColor<<presentation>> #E3F2FD
+    BackgroundColor<<domain>> #E8F5E9
+    BackgroundColor<<data>> #FFF3E0
+    BorderColor Black
+    FontColor Black
+}
+
+skinparam packageStyle rectangle
+skinparam defaultTextAlignment center
+skinparam linetype ortho
+
+title Clean Architecture with MVVM
+
+' Presentation Layer
+rectangle "Presentation Layer" <<presentation>> {
+    [View] as V
+    [ViewModel] as VM
+}
+
+' Domain Layer
+rectangle "Domain Layer" <<domain>> {
+    [UseCase] as UC
+    [Repository <<interface>>] as Repo
+}
+
+' Data Layer
+rectangle "Data Layer" <<data>> {
+    [RepositoryImpl] as RepoImpl
+    [DAO] as Dao
+    [DataSource] as DS
+}
+
+' Arrows with clean labels
+V --> VM : observes
+VM --> UC : invokes
+UC --> Repo : calls
+RepoImpl ..|> Repo : implements
+RepoImpl --> Dao : uses
+RepoImpl --> DS : fetches from
+
+@enduml

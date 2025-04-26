@@ -1,4 +1,4 @@
-package androidavatar.learning.contactsapp.ui.theme
+package androidavatar.learning.contactsapp.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

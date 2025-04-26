@@ -1,0 +1,25 @@
+flowchart LR
+%% Presentation Layer
+    subgraph Presentation Layer
+        View[View]
+        ViewModel[ViewModel]
+        View -->|observes| ViewModel
+    end
+
+%% Domain Layer
+subgraph Domain Layer
+UseCase[UseCase]
+Repository[Repository Interface]
+ViewModel -->|calls| UseCase
+UseCase -->|depends on| Repository
+end
+
+%% Data Layer
+subgraph Data Layer
+RepositoryImpl[RepositoryImpl]
+DAO[DAO Room]
+DataSource[RemoteDataSource]
+RepositoryImpl -->|implements| Repository
+RepositoryImpl -->|uses| DAO
+RepositoryImpl -->|fetches from| DataSource
+end

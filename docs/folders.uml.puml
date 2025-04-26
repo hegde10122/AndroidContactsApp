@@ -3,7 +3,7 @@
 ** presentation
 *** screens
 *** components
-*** MainViewModel
+*** theme
 ** domain
 *** model
 *** repository
@@ -16,13 +16,13 @@
 ** util
 @endmindmap
 
-
 src/
  └── main/
  ├── java/androidavatar/learning/contactsapp/
  │   ├── presentation/        <-- UI layer (Compose, ViewModels, Navigation)
  │   │   ├── screens/         <-- One folder per screen
- │   │   └── components/      <-- Shared UI elements (e.g., Buttons, Modals)
+ │   │   ├── components/      <-- Shared UI elements (e.g., Buttons, Modals)
+ │   │   ├── theme/           <-- Color,Theme and Type
  │   ├── domain/              <-- Business logic layer
  │   │   ├── model/           <-- Data classes used in domain (Contact, etc.)
  │   │   ├── repository/      <-- Abstract repository interfaces
@@ -46,7 +46,8 @@ src/
                usecase: single-responsibility interactors like GetAllContactUseCase,AddContactUseCase
                repositories: abstract contract that data layer implements.
  3) data : - The purpose is to handle data sources (Room DB or remote APIs)
-             It includes - Local data (Room DB and DAO), Repository - Implements domain interfaces, Mapper - converts
+             It includes - Local data (Room DB and DAO),
+                           Repository - Implements domain interfaces, Mapper - converts
                            DB entities to domain models and vice-versa
 4) di : - The purpose is to use Hilt or Koin modules for dependency injection
           Keeps all the binding definitions centralised

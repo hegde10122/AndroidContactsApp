@@ -1,4 +1,4 @@
-package androidavatar.learning.contactsapp.ui.theme
+package androidavatar.learning.contactsapp.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
