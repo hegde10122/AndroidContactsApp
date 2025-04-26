@@ -13,22 +13,22 @@ Layers:
 
 ### 2. MainActivity
    
-Located at root package.
+Located at root package.<br/>
 Responsibility: Set up Compose theme and call ContactsApp().
 
 Notes:
 ------
-We don't write logic in MainActivity.
+We don't write logic in MainActivity.<br/>
 It acts as an entry point only.
 
 ### 3. Navigation Setup (ContactsApp Composable)
    
-ContactsApp() is a @Composable function.
-Uses NavController for screen navigation.
+* ContactsApp() is a @Composable function.
+* Uses NavController for screen navigation.
 
-Defines the NavHost:
-Start destination: welcome
-Screens:
-WelcomeScreen
-ContactsListScreen
+* Defines the NavHost:
+** Start destination: welcome
+  ** Screens:
+  ** WelcomeScreen
+  ** ContactsListScreen
 
