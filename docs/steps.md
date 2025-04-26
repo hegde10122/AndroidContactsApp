@@ -25,10 +25,9 @@ It acts as an entry point only.
    
 * ContactsApp() is a @Composable function.
 * Uses NavController for screen navigation.
-
 * Defines the NavHost:
-** Start destination: welcome
-  ** Screens:
-  ** WelcomeScreen
-  ** ContactsListScreen
+  * Start destination: welcome
+  * Screens:
+    * WelcomeScreen
+    * ContactsListScreen
 
