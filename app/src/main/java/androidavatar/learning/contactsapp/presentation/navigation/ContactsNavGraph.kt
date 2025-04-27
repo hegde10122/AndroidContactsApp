@@ -1,4 +1,5 @@
 package androidavatar.learning.contactsapp.presentation.navigation
+import androidavatar.learning.contactsapp.presentation.screens.AddEditContactScreen
 import androidavatar.learning.contactsapp.presentation.screens.ContactsListScreen
 import androidavatar.learning.contactsapp.presentation.screens.WelcomeScreen
 import androidx.compose.runtime.Composable
@@ -8,15 +9,24 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun ContactsApp() {
+fun ContactsApp(){
+
     val navController = rememberNavController()
 
     NavHost(
         navController = navController,
         startDestination = "welcome"
     ) {
-        composable("welcome") { WelcomeScreen(navController) }
-        composable("contacts") { ContactsListScreen(navController) }
-        // more screens...
+        composable("welcome") {
+            WelcomeScreen(navController)
+        }
+        composable("contacts") {
+            ContactsListScreen(navController)
+        }
+
+        composable("add_edit_contact") {
+            AddEditContactScreen(navController)
+        }
     }
+
 }
