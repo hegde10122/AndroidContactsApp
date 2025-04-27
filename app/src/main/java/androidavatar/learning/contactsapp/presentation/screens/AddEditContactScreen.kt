@@ -1,6 +1,7 @@
 package androidavatar.learning.contactsapp.presentation.screens
 
 
+import androidavatar.learning.contactsapp.domain.constants.ValidationConstants
 import androidavatar.learning.contactsapp.domain.usecase.ContactFormValidator
 import androidavatar.learning.contactsapp.presentation.components.ReusableTextField
 import androidx.compose.foundation.layout.Column
@@ -67,7 +68,7 @@ fun AddEditContactScreen(navController: NavController){
                 phone = it
                 phoneError = validator.validatePhone(it) },
             label = "Phone number",
-            maxLength = 10, // Limit to 10 digits for phone number,
+            maxLength = ValidationConstants.PHONE_LENGTH, // Limit to 10 digits for phone number,
             isError = phoneError!= null,
             errorMessage = phoneError ?: "")
         Spacer(modifier = Modifier.height(24.dp))
@@ -83,7 +84,7 @@ fun AddEditContactScreen(navController: NavController){
         ReusableTextField(value = pincode, onValueChange = {
             pincode = it
             pincodeError = validator.validatePincode(it)
-        }, label = "Pincode", isError = pincodeError!= null, errorMessage = pincodeError ?: "", maxLength = 6)
+        }, label = "Pincode", isError = pincodeError!= null, errorMessage = pincodeError ?: "", maxLength = ValidationConstants.PINCODE_LENGTH)
         Spacer(modifier = Modifier.height(24.dp))
         Button(onClick = {
 
